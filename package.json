@@ -1,0 +1,20 @@
+{
+  "name": "fos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/typescript/bin/tsc --watch",
+    "build": "./node_modules/typescript/bin/tsc --build"
+  },
+  "keywords": [],
+  "author": "Abdul-Harisu Inusah",
+  "license": "0BSD",
+  "devDependencies": {
+    "@types/ms": "^0.7.31",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "ms": "^2.1.2"
+  }
+}
