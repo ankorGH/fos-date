@@ -1,17 +1,21 @@
 {
   "name": "fos",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc --watch",
-    "build": "./node_modules/typescript/bin/tsc --build"
+    "build": "./node_modules/typescript/bin/tsc --build",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Abdul-Harisu Inusah",
   "license": "0BSD",
   "devDependencies": {
+    "@types/jest": "^25.2.3",
     "@types/ms": "^0.7.31",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
   },
   "dependencies": {
