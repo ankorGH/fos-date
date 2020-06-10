@@ -1,5 +1,5 @@
 import ms from "ms";
-import { InvalidTimeFormat } from "./errors";
+import { InvalidTimeFormat, InvalidParameter } from "./errors";
 import { fos } from "./fos.interface";
 
 export default function fos(
@@ -9,6 +9,17 @@ export default function fos(
   sec: number = 0,
   milli: number = 0
 ): fos {
+  if (
+    typeof hr !== "number" ||
+    typeof min !== "number" ||
+    typeof sec !== "number" ||
+    typeof milli !== "number"
+  ) {
+    throw new InvalidParameter(
+      "Invalid parameter, parameter type should be a number."
+    );
+  }
+
   this.value = new Date(new Date().setHours(hr, min, sec, milli));
   this._tempValue = new Date(this.value.valueOf());
 
@@ -37,7 +48,7 @@ export default function fos(
   this.subtract = (time: string) => {
     this._resetTempDate();
 
-    const convertedTime = ms(time);
+    const convertedTime = Math.abs(ms(time));
 
     if (!convertedTime) {
       throw new InvalidTimeFormat();
@@ -45,7 +56,7 @@ export default function fos(
 
     this.value = new Date(
       this._tempValue.setMilliseconds(
-        this._tempValue.getMilliseconds() + convertedTime
+        this._tempValue.getMilliseconds() - convertedTime
       )
     );
 
