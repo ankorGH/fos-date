@@ -32,7 +32,7 @@ export default function fos(
 
     const convertedTime = ms(time);
 
-    if (!convertedTime) {
+    if (isNaN(convertedTime)) {
       throw new InvalidTimeFormat();
     }
 
@@ -50,7 +50,7 @@ export default function fos(
 
     const convertedTime = Math.abs(ms(time));
 
-    if (!convertedTime) {
+    if (isNaN(convertedTime)) {
       throw new InvalidTimeFormat();
     }
 
