@@ -15,3 +15,12 @@ console.log(twoDaysToToday);
 // get date of 2 days before today midnight
 let twoDaysAfterToday = fos().add("-2d").value;
 console.log(twoDaysAfterToday);
+
+let rangeFromTodayToNextFiveDays = fos().range("0", "5d").value;
+console.log(rangeFromTodayToNextFiveDays);
+
+let rangeFromFiveDaysAgoTillDate = fos().range("5d", "0").value;
+console.log(rangeFromFiveDaysAgoTillDate);
+
+let rangeFromFivedaysAgoToNextFiveDays = fos().range("5d", "5d").value;
+console.log(rangeFromFivedaysAgoToNextFiveDays);

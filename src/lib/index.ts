@@ -32,7 +32,7 @@ export default function fos(
 
     const convertedTime = ms(time);
 
-    if (!convertedTime) {
+    if (isNaN(convertedTime)) {
       throw new InvalidTimeFormat();
     }
 
@@ -50,7 +50,7 @@ export default function fos(
 
     const convertedTime = Math.abs(ms(time));
 
-    if (!convertedTime) {
+    if (isNaN(convertedTime)) {
       throw new InvalidTimeFormat();
     }
 
@@ -59,6 +59,39 @@ export default function fos(
         this._tempValue.getMilliseconds() - convertedTime
       )
     );
+
+    return this;
+  };
+
+  this.range = (lowerBound: string = "0", upperBound: string = "0") => {
+    this._resetTempDate();
+
+    const lowerBoundTime = Math.abs(ms(lowerBound));
+    const upperBoundTime = Math.abs(ms(upperBound));
+
+    if (isNaN(lowerBoundTime)) {
+      throw new InvalidTimeFormat();
+    }
+
+    if (isNaN(upperBoundTime)) {
+      throw new InvalidTimeFormat();
+    }
+
+    const lower = new Date(
+      this._tempValue.setMilliseconds(
+        this._tempValue.getMilliseconds() - lowerBoundTime
+      )
+    );
+
+    this._resetTempDate();
+
+    const upper = new Date(
+      this._tempValue.setMilliseconds(
+        this._tempValue.getMilliseconds() + upperBoundTime
+      )
+    );
+
+    this.value = [lower, upper];
 
     return this;
   };
