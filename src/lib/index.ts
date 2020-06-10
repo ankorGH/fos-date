@@ -63,5 +63,38 @@ export default function fos(
     return this;
   };
 
+  this.range = (lowerBound: string = "0", upperBound: string = "0") => {
+    this._resetTempDate();
+
+    const lowerBoundTime = Math.abs(ms(lowerBound));
+    const upperBoundTime = Math.abs(ms(upperBound));
+
+    if (isNaN(lowerBoundTime)) {
+      throw new InvalidTimeFormat();
+    }
+
+    if (isNaN(upperBoundTime)) {
+      throw new InvalidTimeFormat();
+    }
+
+    const lower = new Date(
+      this._tempValue.setMilliseconds(
+        this._tempValue.getMilliseconds() - lowerBoundTime
+      )
+    );
+
+    this._resetTempDate();
+
+    const upper = new Date(
+      this._tempValue.setMilliseconds(
+        this._tempValue.getMilliseconds() + upperBoundTime
+      )
+    );
+
+    this.value = [lower, upper];
+
+    return this;
+  };
+
   return this;
 }
