@@ -1,8 +1,9 @@
 {
-  "name": "fos",
-  "version": "0.0.1",
+  "name": "fos-date",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc --watch",
     "build": "./node_modules/typescript/bin/tsc --build",
