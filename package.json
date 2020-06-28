@@ -2,8 +2,9 @@
   "name": "fos-date",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "prepublishOnly": "npm run build",
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc --watch",
     "build": "./node_modules/typescript/bin/tsc --build",
