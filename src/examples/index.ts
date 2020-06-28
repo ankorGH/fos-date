@@ -16,11 +16,14 @@ console.log(twoDaysToToday);
 let twoDaysAfterToday = fos().add("-2d").value;
 console.log(twoDaysAfterToday);
 
+// get range from today to next five days
 let rangeFromTodayToNextFiveDays = fos().range("0", "5d").value;
 console.log(rangeFromTodayToNextFiveDays);
 
+// get range from five days ago to current day
 let rangeFromFiveDaysAgoTillDate = fos().range("5d", "0").value;
 console.log(rangeFromFiveDaysAgoTillDate);
 
+// get range from five days ago to next five days
 let rangeFromFivedaysAgoToNextFiveDays = fos().range("5d", "5d").value;
 console.log(rangeFromFivedaysAgoToNextFiveDays);
