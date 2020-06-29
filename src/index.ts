@@ -1,3 +1,1 @@
-import * as fos from "./lib/index";
-
-export default fos;
+export * as fos from "./lib/index";
