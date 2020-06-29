@@ -1,1 +1,1 @@
-export * as fos from "./lib/index";
+export * from "./lib/index";
