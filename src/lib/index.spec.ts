@@ -1,31 +1,31 @@
-import fos from "./index";
+import { fos } from "./index";
 import { InvalidParameter, InvalidTimeFormat } from "./errors";
 
 describe("Test for lib", () => {
   describe("setup lib", () => {
     it("initialises with current day at midnight", () => {
-      const dayAtMidnight = fos().value;
+      const dayAtMidnight = fos().getValue();
       const date = new Date(new Date().setHours(0, 0, 0, 0));
 
       expect(dayAtMidnight).toEqual(date);
     });
 
     it("set hour when provided", () => {
-      const todayAt4 = fos(4).value;
+      const todayAt4 = fos(4).getValue();
       const date = new Date(new Date().setHours(4, 0, 0, 0));
 
       expect(todayAt4).toEqual(date);
     });
 
     it("set min when provided", () => {
-      const quarterPastThree = fos(3, 15).value;
+      const quarterPastThree = fos(3, 15).getValue();
       const date = new Date(new Date().setHours(3, 15, 0, 0));
 
       expect(quarterPastThree).toEqual(date);
     });
 
     it("set milli(seconds) when provided", () => {
-      const day = fos(3, 15, 45, 12).value;
+      const day = fos(3, 15, 45, 12).getValue();
       const date = new Date(new Date().setHours(3, 15, 45, 12));
 
       expect(day).toEqual(date);
@@ -43,7 +43,7 @@ describe("Test for lib", () => {
 
   describe("adds time to current date", () => {
     it("adds a day to current date", () => {
-      const tommorrowAtMidnight = fos().add("1d").value;
+      const tommorrowAtMidnight = fos().add("1d");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() + 1)).setHours(
           0,
@@ -57,7 +57,7 @@ describe("Test for lib", () => {
     });
 
     it("adds a week to current date", () => {
-      const aWeekTodayAtMidnight = fos().add("1week").value;
+      const aWeekTodayAtMidnight = fos().add("1week");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() + 7)).setHours(
           0,
@@ -71,7 +71,7 @@ describe("Test for lib", () => {
     });
 
     it("adds a day to current date at 5", () => {
-      const tommorrowAt5 = fos(5).add("1d").value;
+      const tommorrowAt5 = fos(5).add("1d");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() + 1)).setHours(
           5,
@@ -95,7 +95,7 @@ describe("Test for lib", () => {
 
   describe("subtracts time to current date", () => {
     it("subtracts a day from current date", () => {
-      const yesterdayAtMidnight = fos().subtract("1d").value;
+      const yesterdayAtMidnight = fos().subtract("1d");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() - 1)).setHours(
           0,
@@ -109,7 +109,7 @@ describe("Test for lib", () => {
     });
 
     it("subtract a week from current date", () => {
-      const aWeekAgoAtMidnight = fos().subtract("1week").value;
+      const aWeekAgoAtMidnight = fos().subtract("1week");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() - 7)).setHours(
           0,
@@ -123,7 +123,7 @@ describe("Test for lib", () => {
     });
 
     it("subtact a day from current date at 5", () => {
-      const yesterdayAt5 = fos(5).subtract("1d").value;
+      const yesterdayAt5 = fos(5).subtract("1d");
       const date = new Date(
         new Date(new Date().setDate(new Date().getDate() - 1)).setHours(
           5,
@@ -147,7 +147,7 @@ describe("Test for lib", () => {
 
   describe("range between date interval", () => {
     it("return date range between today and next five days", () => {
-      const rangeFromTodayToNextFiveDays = fos().range("0", "5d").value;
+      const rangeFromTodayToNextFiveDays = fos().range("0", "5d");
       const today = new Date(
         new Date(new Date().setDate(new Date().getDate())).setHours(0, 0, 0, 0)
       );
@@ -164,7 +164,7 @@ describe("Test for lib", () => {
     });
 
     it("returns range from five days ago till date", () => {
-      const rangeFromFiveDaysAgoToToday = fos().range("5d", "0").value;
+      const rangeFromFiveDaysAgoToToday = fos().range("5d", "0");
       const fiveDaysAgo = new Date(
         new Date(new Date().setDate(new Date().getDate() - 5)).setHours(
           0,
@@ -181,7 +181,7 @@ describe("Test for lib", () => {
     });
 
     it("return a range five days Ago to to next five days", () => {
-      const rangeFromFiveDaysAgoToNextFiveDays = fos().range("-5d", "5d").value;
+      const rangeFromFiveDaysAgoToNextFiveDays = fos().range("-5d", "5d");
       const fiveDaysAgo = new Date(
         new Date(new Date().setDate(new Date().getDate() - 5)).setHours(
           0,

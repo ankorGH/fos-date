@@ -1,12 +1,25 @@
 {
-  "name": "fos",
-  "version": "0.0.1",
+  "name": "fos-date",
+  "version": "0.1.4",
   "description": "",
-  "main": "index.js",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc --watch",
     "build": "./node_modules/typescript/bin/tsc --build",
-    "test": "jest"
+    "prepare": "yarn build",
+    "test": "jest",
+    "prepublishOnly": "yarn test"
+  },
+  "bugs": {
+    "url": "https://github.com/ankorgh/fos-date/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankorGH/fos-date"
   },
   "keywords": [],
   "author": "Abdul-Harisu Inusah",
