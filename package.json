@@ -4,6 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc --watch",
     "build": "./node_modules/typescript/bin/tsc --build",
@@ -18,9 +21,6 @@
     "type": "git",
     "url": "git+https://github.com/ankorGH/fos-date"
   },
-  "files": [
-    "dist/**/*"
-  ],
   "keywords": [],
   "author": "Abdul-Harisu Inusah",
   "license": "0BSD",
