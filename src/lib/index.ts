@@ -1,14 +1,14 @@
 import ms from "ms";
 import { InvalidTimeFormat, InvalidParameter } from "./errors";
-import { fos } from "./fos.interface";
+import { FosInterface } from "./fos.interface";
 
-export default function fos(
+export const fos = function (
   this: any,
   hr: number = 0,
   min: number = 0,
   sec: number = 0,
   milli: number = 0
-): fos {
+): FosInterface {
   if (
     typeof hr !== "number" ||
     typeof min !== "number" ||
@@ -97,4 +97,4 @@ export default function fos(
   };
 
   return this;
-}
+};

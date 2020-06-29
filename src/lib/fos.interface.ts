@@ -1,6 +1,6 @@
-export interface fos {
+export interface FosInterface {
   value: Date;
-  add: (time: string) => fos;
-  subtract: (time: string) => fos;
-  range: (lowerBoundTime: string, upperBoundTime: string) => fos;
+  add: (time: string) => FosInterface;
+  subtract: (time: string) => FosInterface;
+  range: (lowerBoundTime: string, upperBoundTime: string) => FosInterface;
 }

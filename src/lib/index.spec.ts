@@ -1,4 +1,4 @@
-import fos from "./index";
+import { fos } from "./index";
 import { InvalidParameter, InvalidTimeFormat } from "./errors";
 
 describe("Test for lib", () => {
