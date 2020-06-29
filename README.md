@@ -27,9 +27,9 @@ yarn add fos-date
 ## Getting Started
 
 ```js
-const fos = require("fos");
+const fos = require("fos-date");
 
-const nextFiveDaysFromToday = fos().add("5d").value;
+const nextFiveDaysFromToday = fos().add("5d");
 ```
 
 ## API
@@ -41,7 +41,7 @@ Accepts a time string in this [format](#format). Returns date with current date 
 ```js
 // next two days from now
 
-let nextTwoDays = fos().add("2d").value;
+let nextTwoDays = fos().add("2d");
 console.log(nextTwoDays);
 ```
 
@@ -51,7 +51,7 @@ Accepts a time string in this [format](#format). Returns date with time subtract
 
 ```js
 // get date of 2 days ago today midnight
-let twoDaysAgo = fos().subtract("2d").value;
+let twoDaysAgo = fos().subtract("2d");
 console.log(twoDaysAgo);
 ```
 
@@ -61,7 +61,7 @@ Accepts a time string in this [format](#format). Returns lowerBound and upperBou
 
 ```js
 // get range from five days ago to current day
-let rangeFromFiveDaysAgoTillDate = fos().range("5d", "0").value;
+let rangeFromFiveDaysAgoTillDate = fos().range("5d", "0");
 console.log(rangeFromFiveDaysAgoTillDate);
 ```
 
