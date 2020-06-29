@@ -27,7 +27,7 @@ yarn add fos-date
 ## Getting Started
 
 ```js
-const fos = require("fos-date");
+const { fos } = require("fos-date");
 
 const nextFiveDaysFromToday = fos().add("5d");
 ```
