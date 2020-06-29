@@ -1,4 +1,4 @@
-import fos from "../lib/index";
+import { fos } from "../lib/index";
 
 // get today date value at midnight
 const today = fos().value;
